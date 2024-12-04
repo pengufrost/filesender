@@ -460,6 +460,11 @@ $default = array(
             'advanced' => true,
             'default' => false
         ),
+        'hide_sender_email' => array(
+            'available' => false,
+            'advanced' => true,
+            'default' => false
+        ),
         'must_be_logged_in_to_download' => array(
             'available' => true,
             'advanced' => true,

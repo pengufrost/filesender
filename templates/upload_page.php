@@ -82,7 +82,7 @@ if(Auth::isGuest()) {
  *                        show in the default panels on the left. This allows
  *                        some options to be displayed in other locations on the page.
  */
-$displayoption = function( $name, $cfg, $disable = false, $forcedOption = false, $optionsToFilter = array('hide_sender_email')) use ($guest_can_only_send_to_creator) {
+$displayoption = function( $name, $cfg, $disable = false, $forcedOption = false, $optionsToFilter = array()) use ($guest_can_only_send_to_creator) {
     $text = in_array($name, array(TransferOptions::REDIRECT_URL_ON_COMPLETE));
 
     if( in_array($name, $optionsToFilter)) {
@@ -437,17 +437,6 @@ $expireDays = array_filter(array( 7, 15, 30, 40 ), function($k) {
                                                 </div>
                                             <?php } ?>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <?php
-                                            $ops = Transfer::availableOptions();
-                                            if( array_key_exists( 'hide_sender_email', $ops )) {
-                                                $displayoption('hide_sender_email', $ops['hide_sender_email'], Auth::isGuest(), false, array() );
-                                            }
-                                        ?>
                                     </div>
                                 </div>
 
