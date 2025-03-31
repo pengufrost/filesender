@@ -335,3 +335,19 @@ class RestDataStaleException extends RestException
         parent::__construct('rest_data_stale', 404, array());
     }
 }
+
+/**
+ * REST error if the transfer fails to validate
+ */
+class RestTransferFilesIncompleteException extends RestException
+{
+    /**
+     * Constructor
+     *
+     * @param Transfer $transfer
+     */
+    public function __construct($transfer)
+    {
+        parent::__construct('rest_transfer_files_incomplete', 400, $transfer);
+    }
+}

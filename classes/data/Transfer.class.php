@@ -1634,7 +1634,7 @@ class Transfer extends DBObject
         // Fail if any file not complete
         foreach ($this->files as $file) {
             if (!$file->upload_end) {
-                throw new TransferFilesIncompleteException($this);
+                throw new RestTransferFilesIncompleteException($this); //throw a rest exception back to the client so it can handle it rather than hang
             }
         }
         

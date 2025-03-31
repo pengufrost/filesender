@@ -298,22 +298,6 @@ class TransferException extends DetailedException
 }
 
 /**
- * Files incomplete exception
- */
-class TransferFilesIncompleteException extends TransferException
-{
-    /**
-     * Constructor
-     *
-     * @param Transfer $transfer
-     */
-    public function __construct($transfer)
-    {
-        parent::__construct($transfer, 'files_incomplete');
-    }
-}
-
-/**
  * We filter out URLs in the personal message
  */
 class TransferMessageBodyCanNotIncludeURLsException extends TransferException
