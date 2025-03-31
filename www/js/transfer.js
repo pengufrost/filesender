@@ -1149,6 +1149,14 @@ window.filesender.transfer = function() {
                 
                 if (transfer.oncomplete)
                     transfer.oncomplete.call(transfer, time);
+            }, function(error) {
+                if (error.message === 'rest_transfer_files_incomplete') {
+                    window.filesender.log("transfer files incomplete, retrying");
+                    transfer.status = 'running'; //calling reportComplete again so revert status
+                    transfer.reportComplete;
+                } else {
+                    transfer.reportError(error)
+                }
             });
         }, 300);//1500); //so it doesnt miss the last chunk
     };
